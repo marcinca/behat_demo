@@ -1,0 +1,14 @@
+# behat.yml
+default:
+    suites:
+        default:
+            contexts:
+                - FeatureContext
+                - GuiContext
+    extensions:
+        Behat\MinkExtension:
+            base_url: "http://localhost"
+            default_session: selenium2
+            browser_name: 'firefox'
+            selenium2:
+                capabilities: { "browser": "firefox", "version": "14"}

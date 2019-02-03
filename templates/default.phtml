@@ -11,28 +11,17 @@
                 width: 100%;
                 font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
                 text-align: center;
-                color: #aaa;
-                font-size: 18px;
+                color: #000;
+                font-size: 12pt;
             }
-
-            h1 {
-                color: #719e40;
-                letter-spacing: -3px;
-                font-family: 'Lato', sans-serif;
-                font-size: 100px;
-                font-weight: 200;
-                margin-bottom: 0;
+            .highlight {
+                color: #dc143c;
             }
         </style>
     </head>
     <body>
-        <h1>Slim</h1>
-        <div>a microframework for PHP</div>
-
-        <?php if (isset($name)) : ?>
-            <h2>Hello <?= htmlspecialchars($name); ?>!</h2>
-        <?php else: ?>
-            <p>Try <a href="http://www.slimframework.com">SlimFramework</a></p>
-        <?php endif; ?>
+        <h1>Hello</h1>
+        <div class="subtitle">This us demo page using Slim 3 microframework for PHP</div>
+        <p>This is <span class="highlight"><?=htmlspecialchars(isset($name) ? $name : 'home'); ?></span> page</p>
     </body>
 </html>
