@@ -1,16 +1,10 @@
 <?php
-
 use Behat\Behat\Context\Context;
 use Behat\Gherkin\Node\PyStringNode;
-use Behat\Gherkin\Node\TableNode;
-
-// use Behat\Behat\Context\BehatContext;
-// use Behat\Behat\Exception\PendingException;
 
 /**
  * Defines application features from the specific context.
  */
-// class FeatureContext extends BehatContext implements Context
 class FeatureContext implements Context
 {
     /**
