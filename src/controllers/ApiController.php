@@ -1,8 +1,10 @@
 <?php
 namespace App\Controllers;
 
-use \Slim\Views\PhpRenderer;
-use \Monolog\Logger;
+use Slim\Http\Request;
+use Slim\Http\Response;
+use Slim\Views\PhpRenderer;
+use Monolog\Logger;
 
 class ApiController {
 
@@ -27,6 +29,15 @@ class ApiController {
      * @param $request
      * @param $response
      * @param $args
+     */
+    public function auth($request, $response, $args)
+    {
+    }
+
+    /**
+     * @param $request
+     * @param $response
+     * @param $args
      * @return \Psr\Http\Message\ResponseInterface
      */
     public function default($request, $response, $args)
@@ -34,6 +45,21 @@ class ApiController {
         $this->logger->info("Slim-Skeleton '/' route");
 
         return $this->view->render($response, 'default.phtml', $args);
+    }
+
+    /**
+     * @param $request
+     * @param $response
+     * @param $args
+     * @return \Psr\Http\Message\ResponseInterface
+     */
+    public function login(Request $request, Response $response, $args)
+    {
+        $allGetVars = $request->getParams();
+        if (isset($allGetVars['email']) && !filter_var($allGetVars['email'],FILTER_VALIDATE_EMAIL)) {
+            $args['loginError'] = true;
+        }
+        return $this->view->render($response, 'login.phtml', $args);
     }
 
     /**
